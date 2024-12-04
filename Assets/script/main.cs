@@ -5,9 +5,6 @@ using UnityEngine;
 
 public class main : MonoBehaviour
 {
-    private float HorizontalInput;
-    private float VerticalInput;
-    public float speed=1;
     void Start()
     {
         
@@ -16,8 +13,6 @@ public class main : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        HorizontalInput = Input.GetAxis("Horizontal");
-        VerticalInput = Input.GetAxis("Vertical");
-       transform.Translate(HorizontalInput*speed*Time.deltaTime,VerticalInput*speed*Time.deltaTime,0);
+        
     }
 }
