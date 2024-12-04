@@ -412,7 +412,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9c4d2a45ee7d2844ab688603904d784, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
 --- !u!1 &1099063010
 GameObject:
   m_ObjectHideFlags: 0
@@ -495,7 +494,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1396447130}
   - component: {fileID: 1396447129}
-  - component: {fileID: 1396447131}
   m_Layer: 0
   m_Name: Capsule
   m_TagString: Untagged
@@ -570,25 +568,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1396447131
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1396447128}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b7558d88c0a4b874fbb1926d9739ec6a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 0
 --- !u!1 &1647317639 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5988589382190671805, guid: b3c63bff50bbbf3479f21b56170e899c, type: 3}
   m_PrefabInstance: {fileID: 8958097167991688878}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1647317640
+--- !u!4 &1647317642 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2263148375850945160, guid: b3c63bff50bbbf3479f21b56170e899c, type: 3}
+  m_PrefabInstance: {fileID: 8958097167991688878}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1647317644
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -597,15 +587,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1647317639}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a9c4d2a45ee7d2844ab688603904d784, type: 3}
+  m_Script: {fileID: 11500000, guid: b7558d88c0a4b874fbb1926d9739ec6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
---- !u!4 &1647317642 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2263148375850945160, guid: b3c63bff50bbbf3479f21b56170e899c, type: 3}
-  m_PrefabInstance: {fileID: 8958097167991688878}
-  m_PrefabAsset: {fileID: 0}
+  speed: 10
 --- !u!1001 &8958097167991688878
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -670,7 +655,7 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 5988589382190671805, guid: b3c63bff50bbbf3479f21b56170e899c, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1647317640}
+      addedObject: {fileID: 1647317644}
   m_SourcePrefab: {fileID: 100100000, guid: b3c63bff50bbbf3479f21b56170e899c, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
