@@ -4,21 +4,26 @@ using UnityEngine;
 
 public class EnemyFollow : MonoBehaviour
 {
+    private GameObject player;
+    private Transform playertransform;
 
-    public Transform player; // 玩家角色的Transform
     public float speed = 2f; // 移動速度
     public Vector2 minBounds; // 區域的最小邊界
     public Vector2 maxBounds; // 區域的最大邊界
-
+    private void Start()
+    {
+        player = GameObject.FindWithTag("Player");
+        playertransform = player.transform;
+    }
     private void Update()
     {
         // 計算敵人和玩家之間的方向向量
-        Vector2 direction = (player.position - transform.position).normalized;
-        if (player.position.x - transform.position.x < 0)
+        Vector2 direction = (playertransform.position - transform.position).normalized;
+        if (playertransform.position.x - transform.position.x < 0)
         {
             transform.localScale = new Vector3(1f, 1f, 1f);
         }
-        if (player.position.x - transform.position.x >= 0)
+        if (playertransform.position.x - transform.position.x >= 0)
         {
             transform.localScale = new Vector3(-1f, 1f, 1f);
         }
