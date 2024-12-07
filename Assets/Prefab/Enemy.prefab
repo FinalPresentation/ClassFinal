@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3718513357465250480}
   - component: {fileID: 6297767746249061683}
   - component: {fileID: 1470478484242194228}
+  - component: {fileID: -1513319404339629583}
   - component: {fileID: 1283374918505997911}
   m_Layer: 0
   m_Name: Enemy
@@ -131,6 +132,21 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 2}
   m_EdgeRadius: 0
+--- !u!114 &-1513319404339629583
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6687820245866601385}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c686068539c65c48967eeae9cbc8ecc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 5
+  damage: 0
+  invincibilityDuration: 0.1
 --- !u!114 &1283374918505997911
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -143,7 +159,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 707ea8fffc118e843bf5ecbac649f083, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 8271444855103049649, guid: c1e5cb70ac8d53f4889639523ab0e606, type: 3}
   speed: 2
   minBounds: {x: 0, y: 0}
   maxBounds: {x: 0, y: 0}

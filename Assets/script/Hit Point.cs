@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class HitPoint : MonoBehaviour
 {
-    public int maxHP = 100;
-    public int hp;
+    public float maxHP = 100;
+    public float hp;
+    private bool isInvincible=false;
+    public float invincibilityDuration = 0.5f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,10 +27,17 @@ public class HitPoint : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Enemy"))
+        if (isInvincible==false&&collision.CompareTag("Enemy"))
         {
-            hp -= 10;
-            Debug.Log(hp);
+           StartCoroutine( InvincibilityPeriod());
+
         }
+    }
+    private IEnumerator InvincibilityPeriod()
+    {
+        isInvincible = true;
+        hp -= 10;
+        yield return new WaitForSeconds(invincibilityDuration);
+        isInvincible = false;
     }
 }
