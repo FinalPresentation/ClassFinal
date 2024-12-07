@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
+    public float damage = 1;
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Enemy"))
         {
-            Destroy(collision.gameObject); // ¾P·´¼Ä¤H
+            
             Destroy(gameObject);          // ¾P·´¤l¼u
         }
     }
