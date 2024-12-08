@@ -5,19 +5,25 @@ using UnityEngine;
 
 public class main : MonoBehaviour
 {
-    private float HorizontalInput;
-    private float VerticalInput;
-    public float speed=1;
-    void Start()
+    public int level = 1;
+    public float Upgrade = 100;
+    public float Xp = 0;
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        
+        if (collision.tag == "XP")
+        {
+            Destroy(collision.gameObject);
+            Xp = Xp + 30;
+        }
     }
-
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        HorizontalInput = Input.GetAxis("Horizontal");
-        VerticalInput = Input.GetAxis("Vertical");
-       transform.Translate(HorizontalInput*speed*Time.deltaTime,VerticalInput*speed*Time.deltaTime,0);
+        if (Xp>=Upgrade)
+        {
+            Xp = Xp-Upgrade;
+            level++;
+            Upgrade = Upgrade * 1.2f;
+        }
+        Debug.Log("Level:"+level+"  Upgrade"+Upgrade+"  Xp"+Xp);
     }
 }

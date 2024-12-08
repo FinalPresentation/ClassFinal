@@ -9,6 +9,8 @@ public class EnemyHealth : MonoBehaviour
     public float damage;
     private bool isInvincible = false;
     public float invincibilityDuration = 0.1f;
+    public GameObject XP;
+
     private void Start()
     {
        damage =FindObjectOfType<Bullet>().damage; 
@@ -24,6 +26,7 @@ public class EnemyHealth : MonoBehaviour
     {
         if (health <= 0)
         {
+            Instantiate(XP,transform.position,transform.rotation);
             Destroy(this.gameObject);
         }
     }
