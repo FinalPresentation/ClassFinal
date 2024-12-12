@@ -7,7 +7,7 @@ public class SkillUI : MonoBehaviour
 {
     public List<Skill> allSkills; // 所有技能
     public List<GameObject> skillButtons; // 三個技能按鈕對應的 UI
-    private SkillManager skillManager;
+    public SkillManager skillManager;
 
     private void Awake()
     {
@@ -16,38 +16,65 @@ public class SkillUI : MonoBehaviour
 
     public void ShowSkillChoices()
     {
-        // 隨機挑選三個技能
+        if (allSkills == null || allSkills.Count == 0)
+        {
+            Debug.LogError("Skill list is empty or not initialized!");
+            return;
+        }
+
+        // 隨機挑選技能
         List<Skill> chosenSkills = new List<Skill>();
-        while (chosenSkills.Count < 3)
+        int attempts = 0;
+        while (chosenSkills.Count < 3 && attempts < 100)
         {
             Skill randomSkill = allSkills[Random.Range(0, allSkills.Count)];
-            if (!chosenSkills.Contains(randomSkill)) // 確保不重複
+            if (!chosenSkills.Contains(randomSkill))
             {
                 chosenSkills.Add(randomSkill);
             }
+            attempts++;
         }
 
-        // 更新按鈕內容並綁定點擊事件
+        if (attempts >= 100)
+        {
+            Debug.LogError("Failed to select unique skills within reasonable attempts.");
+            return;
+        }
+
+        // 更新按鈕
         for (int i = 0; i < skillButtons.Count; i++)
         {
             var button = skillButtons[i];
+            if (button == null)
+            {
+                Debug.LogError($"Button {i} is not assigned!");
+                continue;
+            }
+
             var skill = chosenSkills[i];
 
-            // 設定圖示與名稱
-            button.GetComponent<Image>().sprite = skill.icon;
-            button.GetComponentInChildren<TextMeshProUGUI>().text = skill.skillName;
+            var image = button.GetComponent<Image>();
+            if (image != null) image.sprite = skill.icon;
 
-            // 清除之前的點擊事件，綁定新事件
-            Button btnComponent = button.GetComponent<Button>();
-            btnComponent.onClick.RemoveAllListeners();
-            btnComponent.onClick.AddListener(() => SelectSkill(skill));
+            var text = button.GetComponentInChildren<TextMeshProUGUI>();
+            if (text != null) text.text = skill.skillName;
+
+            var btnComponent = button.GetComponent<Button>();
+            if (btnComponent != null)
+            {
+                btnComponent.onClick.RemoveAllListeners();
+                btnComponent.onClick.AddListener(() => SelectSkill(skill));
+            }
         }
+
+        gameObject.SetActive(true);
+        Debug.Log("Skill choices displayed.");
     }
 
     private void SelectSkill(Skill chosenSkill)
     {
         // 添加技能到玩家
-        skillManager.AddSkill(chosenSkill);
+        chosenSkill.ApplyEffect(GameObject.FindGameObjectWithTag("Player")); // 傳入玩家角色
 
         // 關閉技能選擇 UI 並繼續遊戲
         gameObject.SetActive(false);

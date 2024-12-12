@@ -21,7 +21,7 @@ public class IncreaseAttack :Skill
 
     public override void ApplyEffect(GameObject player)
     {
-        var playerStats = player.GetComponent<Bullet>();
+        var playerStats = player.GetComponent<main>();
         if (playerStats != null)
         {
             playerStats.damage += attackBoost;
@@ -29,6 +29,22 @@ public class IncreaseAttack :Skill
         }
     }
     
+}
+[CreateAssetMenu(menuName = "Skills/IncreaseAttack2")]
+public class IncreaseAttack2 : Skill
+{
+    public float attackBoost = 10f;
+
+    public override void ApplyEffect(GameObject player)
+    {
+        var playerStats = player.GetComponent<main>();
+        if (playerStats != null)
+        {
+            playerStats.damage += attackBoost;
+            Debug.Log($"Increased attack power by {attackBoost}");
+        }
+    }
+
 }
 
 [CreateAssetMenu(menuName = "Skills/IncreaseSpeed")]

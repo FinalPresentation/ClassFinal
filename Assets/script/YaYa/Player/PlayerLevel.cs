@@ -8,6 +8,7 @@ public class PlayerLevel : MonoBehaviour
     public main PlayerXp;
     public Image MaxXp;
     public Image CurrentXp;
+    
 
     public float XP;
     private void Start()

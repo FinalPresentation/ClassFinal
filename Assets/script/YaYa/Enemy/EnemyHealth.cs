@@ -13,7 +13,7 @@ public class EnemyHealth : MonoBehaviour
 
     private void Start()
     {
-       damage =FindObjectOfType<Bullet>().damage; 
+      
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -23,7 +23,7 @@ public class EnemyHealth : MonoBehaviour
         }
     }
     private void Update()
-    {
+    { damage =FindObjectOfType<Bullet>().BulletDamage; 
         if (health <= 0)
         {
             Instantiate(XP,transform.position,transform.rotation);
