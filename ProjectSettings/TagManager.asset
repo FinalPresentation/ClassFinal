@@ -7,14 +7,15 @@ TagManager:
   - Enemy
   - bullet
   - XP
+  - RotateBall
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Player
   - Water
   - UI
-  - 
+  - Skill
   - 
   - 
   - 
