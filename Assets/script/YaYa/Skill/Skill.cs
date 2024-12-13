@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -17,7 +18,7 @@ public abstract class Skill : ScriptableObject
 [CreateAssetMenu(menuName = "Skills/IncreaseAttack")]
 public class IncreaseAttack :Skill
 {
-    public float attackBoost = 10f;
+    public float attackBoost = 3f;
 
     public override void ApplyEffect(GameObject player)
     {
@@ -27,6 +28,7 @@ public class IncreaseAttack :Skill
             playerStats.damage += attackBoost;
             Debug.Log($"Increased attack power by {attackBoost}");
         }
+
     }
     
 }
@@ -43,7 +45,9 @@ public class IncreaseAttack2 : Skill
             playerStats.damage += attackBoost;
             Debug.Log($"Increased attack power by {attackBoost}");
         }
-    }
+
+    } 
+
 
 }
 
@@ -64,4 +68,24 @@ public class IncreaseAttack2 : Skill
     }
 
 
+[CreateAssetMenu(menuName = "Skills/RotateBall")]
+public class RotateBallSkill : Skill
+{
+   
+ 
+    public override void ApplyEffect(GameObject player)
+    {
+        Transform rotateBallTransform = player.transform.Find("Rotate");
 
+        if (rotateBallTransform != null)
+        {
+            GameObject rotateBall = rotateBallTransform.gameObject;
+            rotateBall.SetActive(true); // ±Ò¥Î RotateBall
+            
+        }
+        else
+        {
+            Debug.LogWarning("RotateBall object not found as a child of the player!");
+        }
+    }
+}

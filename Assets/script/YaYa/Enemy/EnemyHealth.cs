@@ -7,9 +7,10 @@ public class EnemyHealth : MonoBehaviour
 {
     public float health=5;
     public float damage;
-    private bool isInvincible = false;
+    public bool isInvincible = false;
     public float invincibilityDuration = 0.1f;
     public GameObject XP;
+    public float skilldamage;
 
     private void Start()
     {
@@ -17,9 +18,14 @@ public class EnemyHealth : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-       if(collision.tag=="bullet")
+       if(collision.tag=="bullet"&&isInvincible==false)
         {
             StartCoroutine(InvincibilityPeriod());
+        }
+       if(collision.tag=="RotateBall"&&isInvincible == false)
+        {
+            Debug.Log("AAA");
+            StartCoroutine(InvincibilityPeriod2());
         }
     }
     private void Update()
@@ -34,6 +40,14 @@ public class EnemyHealth : MonoBehaviour
     {
         isInvincible = true;
          health=health-damage;
+        yield return new WaitForSeconds(invincibilityDuration);
+        isInvincible = false;
+    }
+    private IEnumerator InvincibilityPeriod2()
+    {
+        skilldamage = FindObjectOfType<main>().damage;
+        isInvincible = true;
+        health = health - skilldamage;
         yield return new WaitForSeconds(invincibilityDuration);
         isInvincible = false;
     }
