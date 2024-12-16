@@ -2,13 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerShoot : MonoBehaviour
+public class BombShoot : MonoBehaviour
 {
     public GameObject bulletPrefab;  // 子彈預製體
     public float fireRate = 0.5f;    // 子彈發射頻率
     public float detectionRadius = 10f; // 偵測範圍
     public Transform bulletSpawnPoint; // 子彈生成位置
-    public float speed=10f;
+    public float speed = 10f;
 
     private float fireTimer;         // 發射計時器
     private GameObject nearestEnemy; // 最近的敵人
@@ -23,7 +23,7 @@ public class PlayerShoot : MonoBehaviour
         // 如果找到最近的敵人且可以發射
         if (nearestEnemy != null && fireTimer >= fireRate)
         {
-            ShootAtEnemy();
+            Shoot(bulletPrefab,speed);
             fireTimer = 0f; // 重置計時器
         }
     }
@@ -46,15 +46,19 @@ public class PlayerShoot : MonoBehaviour
             }
         }
     }
-    void ShootAtEnemy()
+    void Shoot(GameObject projectilePrefab, float speed)
     {
-        // 瞄準最近的敵人
+        if (nearestEnemy == null) return;
+
         Vector2 direction = (nearestEnemy.transform.position - transform.position).normalized;
 
-        // 生成子彈
-        GameObject bullet = Instantiate(bulletPrefab, bulletSpawnPoint.position, Quaternion.identity);
+        GameObject projectile = Instantiate(projectilePrefab, bulletSpawnPoint.position, Quaternion.identity);
 
-        // 給子彈施加方向和速度
-        bullet.GetComponent<Rigidbody2D>().velocity = direction * speed; // 假設子彈速度為 10
+        if (projectilePrefab.GetComponent<Bomb>() != null)
+        {
+            projectile.GetComponent<Bomb>().SetTarget(nearestEnemy);
+        }
+
+        projectile.GetComponent<Rigidbody2D>().velocity = direction * speed;
     }
 }

@@ -8,6 +8,7 @@ TagManager:
   - bullet
   - XP
   - RotateBall
+  - Bomb
   layers:
   - Default
   - TransparentFX
