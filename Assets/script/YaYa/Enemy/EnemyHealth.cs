@@ -24,8 +24,12 @@ public class EnemyHealth : MonoBehaviour
         }
        if(collision.tag=="RotateBall"&&isInvincible == false)
         {
-            Debug.Log("AAA");
+           
             StartCoroutine(InvincibilityPeriod2());
+        }
+       if (collision.tag == "Bomb"&&isInvincible==false)
+        { Debug.Log("BBB");
+            StartCoroutine(InvincibilityPeriod3());
         }
     }
     private void Update()
@@ -49,6 +53,14 @@ public class EnemyHealth : MonoBehaviour
         isInvincible = true;
         health = health - skilldamage;
         yield return new WaitForSeconds(invincibilityDuration);
+        isInvincible = false;
+    }
+    private IEnumerator InvincibilityPeriod3()
+    {
+        skilldamage = FindObjectOfType<main>().damage*5;
+        isInvincible = true;
+        health = health - skilldamage;
+        yield return new WaitForSeconds(1);
         isInvincible = false;
     }
 }

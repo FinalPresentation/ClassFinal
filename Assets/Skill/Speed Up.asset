@@ -9,11 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
-  m_Name: New Rotate Ball Skill
-  m_EditorClassIdentifier: Assembly-CSharp::RotateBallSkill
-  skillName: RotateBall
+  m_Script: {fileID: 11500000, guid: 5c451b6d67d8c374c8f50f75d97dd7d6, type: 3}
+  m_Name: Speed Up
+  m_EditorClassIdentifier: 
+  skillName: 
   description: 
   icon: {fileID: 0}
   speedBoost: 2
-  rotateblall: {fileID: 5442562789474139752, guid: 2668662f0cdcd9d4e884d1f7b473bbd8, type: 3}

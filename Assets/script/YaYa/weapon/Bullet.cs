@@ -9,7 +9,7 @@ public class Bullet : MonoBehaviour
     public float BulletDamage=3;
     public void Start()
     {
-      
+     
     }
     void OnTriggerEnter2D(Collider2D collision)
     {
@@ -22,7 +22,7 @@ public class Bullet : MonoBehaviour
 
     void Update()
     {BulletDamage= FindObjectOfType<main>().damage ;
-        // ¾P·´¶W¥X½d³òªº¤l¼u
+       
         if (Vector2.Distance(transform.position, Vector2.zero) > 50f)
         {
             Destroy(gameObject);
