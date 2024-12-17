@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c451b6d67d8c374c8f50f75d97dd7d6, type: 3}
   m_Name: Speed Up
   m_EditorClassIdentifier: 
-  skillName: 
+  skillName: Speed
   description: 
   icon: {fileID: 0}
   speedBoost: 2

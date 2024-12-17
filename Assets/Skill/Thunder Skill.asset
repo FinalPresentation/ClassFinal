@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b7270927220df614bbbb94514ca13e4a, type: 3}
-  m_Name: Rotate Ball
+  m_Script: {fileID: 11500000, guid: 82260c818c6fdc94980e1a3c5bf0b468, type: 3}
+  m_Name: Thunder Skill
   m_EditorClassIdentifier: 
-  skillName: Rotate Ball
+  skillName: Thunder
   description: 
   icon: {fileID: 0}
