@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 561ba2060c4832646a6bf8d4817d1910, type: 3}
   m_Name: Attack Up
   m_EditorClassIdentifier: 
-  skillName: 
+  skillName: Attack
   description: 
   icon: {fileID: 0}
   attackBoost: 3

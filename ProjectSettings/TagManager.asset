@@ -9,6 +9,7 @@ TagManager:
   - XP
   - RotateBall
   - Bomb
+  - Thunder
   layers:
   - Default
   - TransparentFX
