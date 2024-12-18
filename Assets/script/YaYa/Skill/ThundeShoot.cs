@@ -82,7 +82,7 @@ public class ThundeShoot : MonoBehaviour
             int randomIndex = Random.Range(0, enemiesInRange.Count);
             nearestEnemy = enemiesInRange[randomIndex];
         }
-        Debug.Log("Enemy:"+enemiesInRange.Count);
+       
     }
 
 }

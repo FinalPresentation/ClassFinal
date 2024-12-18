@@ -31,7 +31,11 @@ public class EnemyHealth : MonoBehaviour
         { 
             StartCoroutine(InvincibilityPeriod3());
         }
-       
+        if (collision.tag == "Boomerang" && isInvincible == false)
+        {
+            StartCoroutine(InvincibilityPeriod5());
+        }
+
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
@@ -41,6 +45,7 @@ public class EnemyHealth : MonoBehaviour
             StartCoroutine(InvincibilityPeriod4());
         } 
     }
+    
     private void Update()
     { damage =FindObjectOfType<Bullet>().BulletDamage; 
         if (health <= 0)
@@ -79,6 +84,15 @@ public class EnemyHealth : MonoBehaviour
         isInvincible = true;
         health = health - skilldamage;
         yield return new WaitForSeconds(0.2f);
+        isInvincible = false;
+    }
+    private IEnumerator InvincibilityPeriod5()
+    {
+        Debug.Log("AAA");
+        skilldamage = FindObjectOfType<main>().damage * 1f;
+        isInvincible = true;
+        health = health - skilldamage;
+        yield return new WaitForSeconds(0.5f);
         isInvincible = false;
     }
 }
