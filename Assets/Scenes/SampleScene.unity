@@ -1530,6 +1530,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 4836989c48df1c849b461016155d108d, type: 2}
   - {fileID: 11400000, guid: a7e032cab5f0dbd42b3f268ddd3274ac, type: 2}
   - {fileID: 11400000, guid: 91a694a72abe9be40bfb78cfd3f151fb, type: 2}
+  - {fileID: 11400000, guid: a7d638288f6074247908caf381346ccd, type: 2}
   skillButtons:
   - {fileID: 1874604772}
   - {fileID: 931800407}
@@ -1833,12 +1834,15 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 2434732752651749651, guid: c1e5cb70ac8d53f4889639523ab0e606, type: 3}
       insertIndex: 1
-      addedObject: {fileID: 2098334120}
+      addedObject: {fileID: 2098334124}
     - targetCorrespondingSourceObject: {fileID: 2434732752651749651, guid: c1e5cb70ac8d53f4889639523ab0e606, type: 3}
       insertIndex: 2
-      addedObject: {fileID: 2098334116}
+      addedObject: {fileID: 2098334120}
     - targetCorrespondingSourceObject: {fileID: 2434732752651749651, guid: c1e5cb70ac8d53f4889639523ab0e606, type: 3}
       insertIndex: 3
+      addedObject: {fileID: 2098334116}
+    - targetCorrespondingSourceObject: {fileID: 2434732752651749651, guid: c1e5cb70ac8d53f4889639523ab0e606, type: 3}
+      insertIndex: 4
       addedObject: {fileID: 2098334112}
     - targetCorrespondingSourceObject: {fileID: 2434732752651749651, guid: c1e5cb70ac8d53f4889639523ab0e606, type: 3}
       insertIndex: -1
@@ -1992,6 +1996,22 @@ MonoBehaviour:
   ShowThunder: {fileID: 550865380}
   detectionRadius: 13
   speed: 10
+--- !u!114 &2098334124
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1446615573}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e559adfdf51361a41b76bbc784caf338, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boomerPrefab: {fileID: 8443552063962885287, guid: d125b4f487663fb4db046c8ca60daabd, type: 3}
+  detectionRadius: 15
+  fireRate: 3
+  player: {fileID: 1446615573}
 --- !u!1 &2137159982
 GameObject:
   m_ObjectHideFlags: 0
