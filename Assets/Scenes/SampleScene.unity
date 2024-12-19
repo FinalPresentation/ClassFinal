@@ -891,6 +891,52 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 9180964100594403912, guid: 5cf1114fc5b69824291b8961aaa329e8, type: 3}
   m_PrefabInstance: {fileID: 1601036294368900174}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &989490318
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 989490320}
+  - component: {fileID: 989490319}
+  m_Layer: 0
+  m_Name: LifeStolenManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &989490319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 989490318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd9b616b767b4804d893c399bc098baf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isLifeStealActive: 0
+  remainingDuration: 100
+--- !u!4 &989490320
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 989490318}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 10.846454, y: 11.773497, z: -8.571865}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1217033206
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1531,6 +1577,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a7e032cab5f0dbd42b3f268ddd3274ac, type: 2}
   - {fileID: 11400000, guid: 91a694a72abe9be40bfb78cfd3f151fb, type: 2}
   - {fileID: 11400000, guid: a7d638288f6074247908caf381346ccd, type: 2}
+  - {fileID: 11400000, guid: 78f47109e350667409f6241ac9cb374e, type: 2}
   skillButtons:
   - {fileID: 1874604772}
   - {fileID: 931800407}
@@ -2230,3 +2277,4 @@ SceneRoots:
   - {fileID: 1626554039}
   - {fileID: 1217033206}
   - {fileID: 1601036294368900174}
+  - {fileID: 989490320}
