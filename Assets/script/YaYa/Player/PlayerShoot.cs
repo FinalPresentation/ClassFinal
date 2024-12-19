@@ -27,7 +27,7 @@ public class PlayerShoot : MonoBehaviour
             fireTimer = 0f; // 重置計時器
         }
     }
-
+    
     void FindNearestEnemy()
     {
         float shortestDistance = Mathf.Infinity;
