@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -8,10 +9,12 @@ public class SkillUI : MonoBehaviour
     public List<Skill> allSkills; // 所有技能
     public List<GameObject> skillButtons; // 三個技能按鈕對應的 UI
     public SkillManager skillManager;
+    public Dictionary<string, int> skillDictionary;
 
     private void Awake()
     {
         skillManager = FindObjectOfType<SkillManager>();
+        skillDictionary = new Dictionary<string, int>();
     }
 
     public void ShowSkillChoices()
@@ -30,7 +33,7 @@ public class SkillUI : MonoBehaviour
             Skill randomSkill = allSkills[Random.Range(0, allSkills.Count)];
             if (!chosenSkills.Contains(randomSkill))
             {
-                chosenSkills.Add(randomSkill);
+                chosenSkills.Add(randomSkill);                
             }
             attempts++;
         }
@@ -75,7 +78,18 @@ public class SkillUI : MonoBehaviour
     {
         // 添加技能到玩家
         chosenSkill.ApplyEffect(GameObject.FindGameObjectWithTag("Player")); // 傳入玩家角色
-
+        if (skillDictionary.ContainsKey(chosenSkill.skillName))
+        {
+            // 如果物品已存在，增加數量
+            skillDictionary[chosenSkill.skillName] += 1;
+            Debug.Log("LevelUp: " + chosenSkill.skillName + skillDictionary[chosenSkill.skillName]);
+        }
+        else
+        {
+            // 如果物品不存在，新增物品
+            skillDictionary[chosenSkill.skillName] = 1;
+            Debug.Log("Getskill" + chosenSkill.skillName + skillDictionary[chosenSkill.skillName]);
+        }
         // 關閉技能選擇 UI 並繼續遊戲
         gameObject.SetActive(false);
         Time.timeScale = 1;
