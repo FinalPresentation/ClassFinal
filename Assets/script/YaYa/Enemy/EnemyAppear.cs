@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class EnemyAppear : MonoBehaviour
 {
-    public GameObject enemyPrefab;  // 怪物預製體
+    public GameObject []enemyPrefab  ;  // 怪物預製體
     public float spawnRange = 5f;   // 距離相機的範圍
     public float spawnTime = 2f; // 生成間隔
-
+   
     private Camera mainCamera;
 
     void Start()
@@ -47,8 +47,20 @@ public class EnemyAppear : MonoBehaviour
                 spawnPosition = new Vector2(cameraTopRight.x + spawnRange, Random.Range(minY, maxY));
                 break;
         }
+        int randomrate = Random.Range(0, 101);
+        if(randomrate<=50)
+        {
+        Instantiate(enemyPrefab[0], spawnPosition, Quaternion.identity);
+        }       
+        else if(randomrate>50&&randomrate<=80) 
+        {
+            Instantiate(enemyPrefab[1], spawnPosition, Quaternion.identity);
 
-       
-        Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
+        }
+        else if (randomrate > 80 && randomrate <= 100)
+        {
+            Instantiate(enemyPrefab[2], spawnPosition, Quaternion.identity);
+        }
+        Debug.Log("randomrate"+randomrate);
     }
 }
