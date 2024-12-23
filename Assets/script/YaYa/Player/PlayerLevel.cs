@@ -19,5 +19,6 @@ public class PlayerLevel : MonoBehaviour
     private void Update()
     {XP = PlayerXp.Upgrade;
         CurrentXp.fillAmount = PlayerXp.Xp/XP;
+
     }
 }
