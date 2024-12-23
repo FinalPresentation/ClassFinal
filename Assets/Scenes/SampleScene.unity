@@ -431,7 +431,7 @@ MonoBehaviour:
   - {fileID: 5241206139183446792, guid: f5151d0d01ec6a24490f2089ca695fd9, type: 3}
   - {fileID: 1283144169597854991, guid: d560277bc2b4e1e4c8f586ebc4301b78, type: 3}
   spawnRange: 5
-  spawnTime: 0.2
+  spawnTime: 0.5
 --- !u!50 &231224828
 Rigidbody2D:
   serializedVersion: 4
@@ -1586,6 +1586,7 @@ MonoBehaviour:
   - {fileID: 931800407}
   - {fileID: 1429117151}
   skillManager: {fileID: 1626554038}
+  chosenSkills: []
 --- !u!1 &1862368397
 GameObject:
   m_ObjectHideFlags: 0

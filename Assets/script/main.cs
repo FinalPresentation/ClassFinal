@@ -16,22 +16,34 @@ public class main : MonoBehaviour
         if (collision.tag == "XP")
         {
             Destroy(collision.gameObject);
-            Xp = Xp + 30;
+            if (level < 36)
+            {
+                Xp = Xp + 30;
+            }
+            
         }
     }
     private void Update()
     {
-        if (Xp>=Upgrade)
+        if(level < 36) // 七個技能5個等級 初始lv.1
         {
-            Xp = Xp-Upgrade;
-            level++;
-            Upgrade = Upgrade * 1.2f;
-            Time.timeScale = 0;
-            OpenSkillUI.gameObject.SetActive(true);
-            OpenSkillUI.ShowSkillChoices();
-            
-
+            if (Xp >= Upgrade)
+            {
+                Xp = Xp - Upgrade;
+                level++;
+                Upgrade = Upgrade * 1.2f;
+                Time.timeScale = 0;
+                OpenSkillUI.gameObject.SetActive(true);
+                OpenSkillUI.ShowSkillChoices();
+            }
         }
+        else
+        {
+            Xp = Upgrade - 1;
+        }
+
+        
+
         Debug.Log("Level:"+level+"  Upgrade"+Upgrade+"  Xp"+Xp);
     }
 }

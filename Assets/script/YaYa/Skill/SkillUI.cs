@@ -10,6 +10,7 @@ public class SkillUI : MonoBehaviour
     public List<GameObject> skillButtons; // 三個技能按鈕對應的 UI
     public SkillManager skillManager;
     public Dictionary<string, int> skillDictionary;
+    public List<Skill> chosenSkills = new List<Skill>(); // 隨機挑選技能List
 
     private void Awake()
     {
@@ -26,18 +27,30 @@ public class SkillUI : MonoBehaviour
         }
 
         // 隨機挑選技能
-        List<Skill> chosenSkills = new List<Skill>();
         int attempts = 0;
-        while (chosenSkills.Count < 3 && attempts < 100)
-        {
-            Skill randomSkill = allSkills[Random.Range(0, allSkills.Count)];
-            if (!chosenSkills.Contains(randomSkill))
+        chosenSkills.Clear();
+        if (allSkills.Count > 2 ) {
+            while (chosenSkills.Count < 3 && attempts < 100)
             {
-                chosenSkills.Add(randomSkill);                
+                Skill randomSkill = allSkills[Random.Range(0, allSkills.Count)];
+                if (!chosenSkills.Contains(randomSkill))
+                {
+                    chosenSkills.Add(randomSkill);
+                }
+                attempts++;
             }
-            attempts++;
         }
-
+        else if (allSkills.Count == 2)
+        {
+            
+            chosenSkills.Add(allSkills[0]);
+            chosenSkills.Add(allSkills[1]);
+        }
+        else if (allSkills.Count == 1)
+        {
+            chosenSkills.Add(allSkills[0]);
+        }
+        
         if (attempts >= 100)
         {
             Debug.LogError("Failed to select unique skills within reasonable attempts.");
@@ -83,6 +96,15 @@ public class SkillUI : MonoBehaviour
             // 如果物品已存在，增加數量
             skillDictionary[chosenSkill.skillName] += 1;
             Debug.Log("LevelUp: " + chosenSkill.skillName + skillDictionary[chosenSkill.skillName]);
+            if (skillDictionary[chosenSkill.skillName] >= 5)
+            {
+                allSkills.Remove(chosenSkill);
+                Debug.Log("ab" + allSkills.Count);
+                for (int i = 0; i < allSkills.Count; i++)
+                {
+                    Debug.Log("ab" + allSkills[i]);
+                }
+            }
         }
         else
         {
