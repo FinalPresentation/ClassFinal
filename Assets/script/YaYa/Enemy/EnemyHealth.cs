@@ -78,6 +78,10 @@ public class EnemyHealth : MonoBehaviour
         {
             StartCoroutine(InvincibilityPeriod5());
         }
+        if (collision.tag == "Sniper" && isInvincible == false)
+        {
+            StartCoroutine(InvincibilityPeriod6());
+        }
 
     }
     private void OnTriggerStay2D(Collider2D collision)
@@ -138,6 +142,16 @@ public class EnemyHealth : MonoBehaviour
     {
         Debug.Log("AAA");
         skilldamage = FindObjectOfType<main>().damage * 1f;
+        isInvincible = true;
+        health = health - skilldamage;
+        PlayHurtSound();
+        yield return new WaitForSeconds(0.5f);
+        isInvincible = false;
+    }
+    private IEnumerator InvincibilityPeriod6()
+    {
+        Debug.Log("AAA");
+        skilldamage = FindObjectOfType<main>().damage * 3f+30;
         isInvincible = true;
         health = health - skilldamage;
         PlayHurtSound();

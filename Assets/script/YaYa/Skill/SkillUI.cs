@@ -69,7 +69,7 @@ public class SkillUI : MonoBehaviour
 
             var skill = chosenSkills[i];
 
-            var image = button.GetComponent<Image>();
+            var image = button.GetComponentInChildren<Image>();
             if (image != null) image.sprite = skill.icon;
 
             var text = button.GetComponentInChildren<TextMeshProUGUI>();
